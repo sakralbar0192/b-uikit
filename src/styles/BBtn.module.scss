@@ -1,0 +1,105 @@
+/* Styles from original _buttons.scss */
+
+.b-btn {
+  align-items: center;
+  border-radius: 6px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: var(--font-weight-regular, 400);
+  letter-spacing: 0;
+  justify-content: center;
+  outline: 0;
+  position: relative;
+  text-decoration: none;
+  text-indent: 0;
+  text-transform: none;
+  transition-duration: 0.28s;
+  transition-property: box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+:global(.v-btn--squared) {
+  border-radius: 0;
+}
+
+:global(.v-btn--pulsating) {
+  position: relative;
+  z-index: 1;
+}
+
+:global(.v-btn--pulsating.primary::after),
+:global(.v-btn--pulsating.secondary::after),
+:global(.v-btn--pulsating.success::after),
+:global(.v-btn--pulsating.error::after),
+:global(.v-btn--pulsating.tertiary::after) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 6px;
+  animation: pulsate4 2s infinite;
+  content: '';
+}
+
+:global(.v-btn--pulsating.primary::after) {
+  background-color: #1976d2; /* primary color */
+}
+
+:global(.v-btn--pulsating.secondary::after) {
+  background-color: #424242; /* secondary color */
+}
+
+:global(.v-btn--pulsating.error::after) {
+  background-color: #d32f2f; /* error color */
+}
+
+:global(.v-btn--pulsating.success::after) {
+  background-color: #388e3c; /* success color */
+}
+
+:global(.v-btn--pulsating.tertiary::after) {
+  background-color: #9c27b0; /* tertiary color */
+}
+
+@keyframes pulsate4 {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+:global(.v-btn--arrow-right) {
+  clip-path: polygon(0% 0%, calc(100% - 10px) 0%, calc(100% - 8.5194552px) 0.09%, calc(100% - 9.0526096px) 0.355%, calc(100% - 8.6035564px) 0.786%, calc(100% - 8.1763888px) 1.374%, calc(100% - 7.7752px) 2.112%, calc(100% - 7.4040832px) 2.99%, calc(100% - 7.0671316px) 3.999%, calc(100% - 6.7684384px) 5.132%, calc(100% - 6.5120968px) 6.38%, calc(100% - 6.3022px) 7.734%, calc(100% - 0.383616px) 44.658%, calc(100% - 0.215784px) 45.949%, calc(100% - 0.095904px) 47.278%, calc(100% - 0.023976px) 48.632%, 100% 50%, calc(100% - 0.023976px) 51.368%, calc(100% - 0.095904px) 52.722%, calc(100% - 0.215784px) 54.051%, calc(100% - 0.383616px) 55.342%, calc(100% - 6.3022px) 92.266%, calc(100% - 6.5120968px) 93.62%, calc(100% - 6.7684384px) 94.868%, calc(100% - 7.0671316px) 96.001%, calc(100% - 7.4040832px) 97.01%, calc(100% - 7.7752px) 97.888%, calc(100% - 8.1763888px) 98.626%, calc(100% - 8.6035564px) 99.214%, calc(100% - 9.0526096px) 99.645%, calc(100% - 9.5194552px) 99.91%, calc(100% - 10px) 100%, 0% 100%, 0% 0%);
+  padding-right: 16px !important;
+}
+
+:global(.v-btn--inner-arrow-left) {
+  clip-path: polygon(0.891px 9.541%, 0.6957704px 8.262%, 0.6005032px 6.95%, 0.5981508px 5.644%, 0.6816656px 4.384%, 0.844px 3.209%, 1.0781064px 2.159%, 1.3769372px 1.274%, 1.7334448px 0.593%, 2.1405816px 0.155%, 2.5913px 0%, 100% 0%, 100% 100%, 2.5913px 100%, 2.1405816px 99.845%, 1.7334448px 99.407%, 1.3769372px 98.726%, 1.0781064px 97.841%, 0.844px 96.791%, 0.6816656px 95.616%, 0.5981508px 94.356%, 0.6005032px 93.05%, 0.6957704px 91.738%, 0.891px 90.459%, 7.6056px 56.582%, 7.821384px 55.342%, 7.989216px 54.051%, 8.109096px 52.722%, 8.181024px 51.368%, 8.205px 50%, 8.181024px 48.632%, 8.109096px 47.278%, 7.989216px 45.949%, 7.821384px 44.658%, 7.6056px 43.418%, 0.891px 9.541%);
+  padding-left: 20px !important;
+}
+
+:global(.font-weight-regular) {
+  font-weight: normal;
+}
+
+:global(.v-btn--text-inline) {
+  display: inline;
+  padding: 0;
+  height: auto;
+  min-width: auto !important;
+  line-height: normal;
+  background-color: transparent !important;
+}
