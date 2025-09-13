@@ -8,6 +8,10 @@ export default defineConfig({
     vue(),
     dts({ insertTypesEntry: true }),
   ],
+  test: {
+    globals: true, // чтобы expect был глобальным
+    environment: 'jsdom', // для тестирования DOM
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),

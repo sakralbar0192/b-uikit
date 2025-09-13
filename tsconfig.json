@@ -2,10 +2,16 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
     "src/**/*",
-    "src/types/**/*"
+    "src/types/**/*",
+    "tests/**/*"
   ],
+  "compilerOptions": {
+    "types": ["vitest/globals", "vue", "node"],
+    "skipLibCheck": true
+  },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "node_modules/@testing-library/jest-dom/types"
   ]
 }

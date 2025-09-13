@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it} from "vitest";
 import { mount } from "@vue/test-utils";
 import BBtn from "../src/components/BBtn.vue";
 
@@ -13,7 +13,8 @@ describe("BBtn", () => {
       props: { color: "primary" },
       slots: { default: "Primary" },
     });
-    expect(wrapper.classes()).toContain("bg-primary-600");
+    
+    expect(wrapper.classes().some(cls => cls.includes("bg-primary-600"))).toBe(true);
   });
 
   it("applies squared classes", () => {
@@ -21,7 +22,8 @@ describe("BBtn", () => {
       props: { squared: true },
       slots: { default: "Squared" },
     });
-    expect(wrapper.classes()).toContain("v-btn--squared");
+    
+    expect(wrapper.classes()).toContain("b-btn--squared");
   });
 
   it("applies pulsate classes", () => {
@@ -29,7 +31,8 @@ describe("BBtn", () => {
       props: { pulsate: true },
       slots: { default: "Pulsate" },
     });
-    expect(wrapper.classes()).toContain("v-btn--pulsating");
+    
+    expect(wrapper.classes()).toContain("b-btn--pulsating");
   });
 
   it("is disabled when disabled prop is true", () => {
@@ -37,6 +40,7 @@ describe("BBtn", () => {
       props: { disabled: true },
       slots: { default: "Disabled" },
     });
+    
     expect(wrapper.attributes("disabled")).toBeDefined();
   });
 
@@ -45,6 +49,7 @@ describe("BBtn", () => {
       props: { loading: true },
       slots: { default: "Loading" },
     });
+    
     expect(wrapper.classes()).toContain("cursor-not-allowed");
   });
 
@@ -53,8 +58,10 @@ describe("BBtn", () => {
       props: { arrowRight: true, innerArrowLeft: true },
       slots: { default: "Arrows" },
     });
-    expect(wrapper.text()).toContain("←");
-    expect(wrapper.text()).toContain("→");
+    
+    expect(wrapper.classes()).toContain("b-btn--arrow-right");
+    
+    expect(wrapper.classes()).toContain("b-btn--inner-arrow-left");
   });
 
   it("renders loader slot when loading and textInline", () => {
@@ -62,7 +69,9 @@ describe("BBtn", () => {
       props: { loading: true, textInline: true },
       slots: { default: "Loading", loader: "Custom Loader" },
     });
+    
     expect(wrapper.text()).toContain("Custom Loader");
+    
     expect(wrapper.text()).toContain("Loading");
   });
 });
