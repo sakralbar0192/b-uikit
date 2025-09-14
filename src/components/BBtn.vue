@@ -14,6 +14,7 @@ export interface BBtnProps {
   innerArrowLeft?: boolean | string | number
   loading?: boolean
   disabled?: boolean
+  type?: 'default' | 'outlined' | 'text' | 'text-inline'
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
 }
@@ -30,6 +31,7 @@ const props = withDefaults(defineProps<BBtnProps>(), {
   innerArrowLeft: false,
   loading: false,
   disabled: false,
+  type: 'default',
   variant: 'primary',
   size: 'md',
 })
@@ -107,7 +109,7 @@ const classes = computed(() => {
 
 <template>
   <button
-    :class="classes"
+    :class="['pt-4', classes]"
     :disabled="disabled || loading"
   >
     <slot v-if="!loading" name="default">Button</slot>

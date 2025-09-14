@@ -2,16 +2,14 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
 import { resolve } from "path";
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [
     vue(),
     dts({ insertTypesEntry: true }),
+    tailwindcss(),
   ],
-  test: {
-    globals: true, // чтобы expect был глобальным
-    environment: 'jsdom', // для тестирования DOM
-  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
