@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "description": "Modern UI Kit for Bnovo - Vue 3 + Headless Components",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./style": "./dist/ui-kit-modern.css"
+  },
   "files": [
     "dist"
   ],
